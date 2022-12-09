@@ -1,1 +1,1 @@
-export const FETCH_DATAS = "datas/fetchSuccess";
+export const FETCH_ITEMS = "items/fetchSuccess";

@@ -3,7 +3,7 @@ import {
   applyMiddleware,
   combineReducers,
 } from "redux";
-import dataReducer from "./reduces/dataReducer";
+import dataReducer from "./reduces/itemReducer";
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
