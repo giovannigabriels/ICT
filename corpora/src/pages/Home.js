@@ -9,8 +9,10 @@ export default function Home() {
   const { items } = useSelector((state) => state.itemReducer);
   const navigate = useNavigate();
   const handleToDetail = (id) => {
-    console.log("masuk");
     navigate(`/detail/${id}`);
+  };
+  const handleToAdd = () => {
+    navigate("/additem");
   };
   useEffect(() => {
     dispatch(fetchItem());
@@ -20,8 +22,12 @@ export default function Home() {
     <>
       <div className="overflow-x-auto">
         <div className="flex flex-row justify-between w-full">
-          <span>ITEM LIST</span>
-          <label className="btn modal-button mb-5">Add Item</label>
+          {/* <span>ITEM LIST</span> */}
+          <label
+            className="btn modal-button mb-5"
+            onClick={handleToAdd}>
+            Add Item
+          </label>
         </div>
         <table className="table w-full">
           <thead>

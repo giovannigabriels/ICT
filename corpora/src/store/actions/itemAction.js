@@ -63,3 +63,27 @@ export const deleteItem = (id) => {
       });
   };
 };
+
+export const addItem = (payload) => {
+  return (dispatch, getState) => {
+    fetch(`${urlBase}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw response.json();
+        }
+        return response.json();
+      })
+      .then(() => {
+        dispatch(fetchItem());
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};
