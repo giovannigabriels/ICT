@@ -39,6 +39,7 @@ export default function Home() {
             {items.map((item, idx) => {
               return (
                 <RowTable
+                  dispatch={dispatch}
                   handleToDetail={handleToDetail}
                   item={item}
                   idx={idx}

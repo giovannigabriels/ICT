@@ -49,3 +49,17 @@ export const fetchOneItem = (id) => {
       });
   };
 };
+
+export const deleteItem = (id) => {
+  return (dispatch, getState) => {
+    fetch(`${urlBase}/${id}`, {
+      method: "delete",
+    })
+      .then(() => {
+        dispatch(fetchItem());
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};

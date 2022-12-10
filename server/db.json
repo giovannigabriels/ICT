@@ -71,14 +71,6 @@
       "price": "20000",
       "imgUrl": "https://hokben-images.s3.ap-southeast-3.amazonaws.com/menu/4a5646931f8a95eb1dc57aac76e460c2-1660030617971",
       "category": "Desert"
-    },
-    {
-      "id": 10,
-      "name": "SUKIYAKI",
-      "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",
-      "price": "50000",
-      "imgUrl": "https://hokben-images.s3.ap-southeast-3.amazonaws.com/menu/4f6ea9ee17f7292abf49ee3938f06dec-1660024262853",
-      "category": "Soup"
     }
   ]
 }

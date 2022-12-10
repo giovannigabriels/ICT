@@ -1,4 +1,9 @@
-export default function RowTable({ item, idx, handleToDetail }) {
+import { deleteItem } from "../store/actions/itemAction";
+
+export default function RowTable({ item, idx, handleToDetail, dispatch }) {
+  const handleDelete = (id) => {
+    dispatch(deleteItem(id));
+  };
   return (
     <tr>
       <th>{idx + 1}</th>
@@ -16,7 +21,11 @@ export default function RowTable({ item, idx, handleToDetail }) {
           Detail
         </button>
         <button className="btn btn-success">Edit</button>
-        <button className="btn btn-warning">Delete</button>
+        <button
+          className="btn btn-warning"
+          onClick={() => handleDelete(item.id)}>
+          Delete
+        </button>
       </td>
     </tr>
   );
