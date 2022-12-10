@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import RowTable from "../components/RowTable";
 import { fetchItem } from "../store/actions/itemAction";
 
 export default function Home() {
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.itemReducer);
-
+  const navigate = useNavigate();
+  const handleToDetail = (id) => {
+    console.log("masuk");
+    navigate(`/detail/${id}`);
+  };
   useEffect(() => {
     dispatch(fetchItem());
   }, []);
@@ -34,6 +39,7 @@ export default function Home() {
             {items.map((item, idx) => {
               return (
                 <RowTable
+                  handleToDetail={handleToDetail}
                   item={item}
                   idx={idx}
                   key={idx}
