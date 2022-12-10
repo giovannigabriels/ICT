@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addItem } from "../store/actions/itemAction";
+import { useNavigate, useParams } from "react-router-dom";
+import { addItem, fetchOneItem, putItem } from "../store/actions/itemAction";
 
-export default function AddPage() {
+export default function EditPage() {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -31,9 +32,21 @@ export default function AddPage() {
   };
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    dispatch(addItem(input));
+    dispatch(putItem(input, id));
     navigate("/");
   };
+  useEffect(() => {
+    dispatch(fetchOneItem(id))
+      .then((data) => {
+        setInput(data);
+      })
+      .catch((error) => {
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+      });
+  }, []);
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">

@@ -1,8 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { deleteItem } from "../store/actions/itemAction";
 
 export default function RowTable({ item, idx, handleToDetail, dispatch }) {
   const handleDelete = (id) => {
     dispatch(deleteItem(id));
+  };
+  const navigate = useNavigate();
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`);
   };
   return (
     <tr>
@@ -20,7 +25,11 @@ export default function RowTable({ item, idx, handleToDetail, dispatch }) {
           onClick={() => handleToDetail(item.id)}>
           Detail
         </button>
-        <button className="btn btn-success">Edit</button>
+        <button
+          className="btn btn-success"
+          onClick={() => handleEdit(item.id)}>
+          Edit
+        </button>
         <button
           className="btn btn-warning"
           onClick={() => handleDelete(item.id)}>

@@ -87,3 +87,27 @@ export const addItem = (payload) => {
       });
   };
 };
+
+export const putItem = (payload, id) => {
+  return (dispatch, getState) => {
+    fetch(`${urlBase}/${id}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw response.json();
+        }
+        return response.json();
+      })
+      .then(() => {
+        dispatch(fetchItem());
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};
