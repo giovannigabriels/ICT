@@ -50,6 +50,9 @@ export default function BarChart() {
     title: {
       text: "Category Chart",
     },
+    axisY: {
+      interval: 1,
+    },
     data: [
       {
         // Change type to "doughnut", "line", "splineArea", etc.
