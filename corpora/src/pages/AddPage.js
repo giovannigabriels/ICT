@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addItem } from "../store/actions/itemAction";
 import FormAdd from "../components/FormAdd";
+import Swal from "sweetalert2";
 export default function AddPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,7 +32,19 @@ export default function AddPage() {
   };
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    dispatch(addItem(input));
+    dispatch(addItem(input))
+      .then((data) => {
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: `${data.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     navigate("/");
   };
   return (

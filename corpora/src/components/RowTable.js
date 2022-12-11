@@ -1,9 +1,29 @@
 import { useNavigate } from "react-router-dom";
 import { deleteItem } from "../store/actions/itemAction";
+import Swal from "sweetalert2";
 
 export default function RowTable({ item, idx, handleToDetail, dispatch }) {
   const handleDelete = (id) => {
-    dispatch(deleteItem(id));
+    Swal.fire({
+      title: `Are you sure you want to delete ${item.name}?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteItem(id)).finally(() => {
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: `Delete ${item.name} Success!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
+      }
+    });
   };
   const navigate = useNavigate();
   const handleEdit = (id) => {

@@ -52,7 +52,7 @@ export const fetchOneItem = (id) => {
 
 export const deleteItem = (id) => {
   return (dispatch, getState) => {
-    fetch(`${urlBase}/${id}`, {
+    return fetch(`${urlBase}/${id}`, {
       method: "delete",
     })
       .then(() => {
@@ -66,48 +66,34 @@ export const deleteItem = (id) => {
 
 export const addItem = (payload) => {
   return (dispatch, getState) => {
-    fetch(`${urlBase}`, {
+    return fetch(`${urlBase}`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw response.json();
-        }
-        return response.json();
-      })
-      .then(() => {
-        dispatch(fetchItem());
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    }).then((response) => {
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    });
   };
 };
 
 export const putItem = (payload, id) => {
   return (dispatch, getState) => {
-    fetch(`${urlBase}/${id}`, {
+    return fetch(`${urlBase}/${id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw response.json();
-        }
-        return response.json();
-      })
-      .then(() => {
-        dispatch(fetchItem());
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    }).then((response) => {
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    });
   };
 };
