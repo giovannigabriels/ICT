@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 export default function CardDetail({ item }) {
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl mx-0">
       <figure>
         <img
           src={item.imgUrl}
-          alt="Album"
+          alt={item.name}
         />
       </figure>
       <div className="card-body">

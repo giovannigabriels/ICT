@@ -40,7 +40,7 @@ export default function DetailPage() {
             {item.name}
           </p>
         </div>
-        <div className="mx-96 my-10">
+        <div className="mx-50 my-10">
           <CardDetail item={item} />
         </div>
       </div>
