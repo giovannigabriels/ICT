@@ -33,6 +33,7 @@ export default function AddPage() {
     ev.preventDefault();
     dispatch(addItem(input));
     navigate("/");
+    console.log(input);
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -119,12 +120,12 @@ export default function AddPage() {
                   className="btn btn-primary"
                   type="submit"
                   onClick={handleSubmit}>
-                  Add
+                  Submit Add
                 </button>
                 <button
                   className="btn btn-error"
                   onClick={handleCancelSubmit}>
-                  Cancel
+                  Cancel Add
                 </button>
               </div>
             </form>

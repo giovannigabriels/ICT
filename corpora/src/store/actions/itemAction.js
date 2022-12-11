@@ -1,6 +1,6 @@
 import { FETCH_ITEMS } from "./actionTypes";
 
-const urlBase = "http://localhost:3001/items";
+const urlBase = "http://localhost:4000/items";
 
 export const itemFetch = (payload) => {
   return {

@@ -132,12 +132,12 @@ export default function EditPage() {
                   className="btn btn-primary"
                   type="submit"
                   onClick={handleSubmit}>
-                  Add
+                  Submit Edit
                 </button>
                 <button
                   className="btn btn-error"
                   onClick={handleCancelSubmit}>
-                  Cancel
+                  Cancel Edit
                 </button>
               </div>
             </form>

@@ -2,9 +2,9 @@
   "items": [
     {
       "id": 1,
-      "name": "CRISPY KARAAGE",
+      "name": "CRISPY KARAGE",
       "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
-      "price": "30000",
+      "price": "50000",
       "imgUrl": "https://hokben-images.s3.ap-southeast-3.amazonaws.com/menu/4ece8c4a1fe8fee08e356706281f1d46-1660023045332",
       "category": "Main Menu"
     },

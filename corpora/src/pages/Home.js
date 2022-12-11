@@ -22,7 +22,6 @@ export default function Home() {
     <>
       <div className="overflow-x-auto">
         <div className="flex flex-row justify-between w-full">
-          {/* <span>ITEM LIST</span> */}
           <label
             className="btn modal-button mb-5"
             onClick={handleToAdd}>
