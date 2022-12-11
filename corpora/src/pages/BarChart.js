@@ -25,7 +25,6 @@ export default function BarChart() {
     dispatch(fetchItem());
   }, []);
   useEffect(() => {
-    console.log(items, "items");
     let mainM = 0;
     let bev = 0;
     let snk = 0;
