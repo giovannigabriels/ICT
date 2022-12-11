@@ -9,6 +9,11 @@ export default function Navbar() {
           className="btn btn-ghost normal-case text-xl">
           Home
         </Link>
+        <Link
+          to={"/bar"}
+          className="btn btn-ghost normal-case text-xl">
+          Bar Chart
+        </Link>
       </div>
       <Outlet />
     </>

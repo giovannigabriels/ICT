@@ -33,7 +33,6 @@ export default function AddPage() {
     ev.preventDefault();
     dispatch(addItem(input));
     navigate("/");
-    console.log(input);
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -90,15 +89,25 @@ export default function AddPage() {
                 <label className="label">
                   <span className="label-text">Category</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="category"
+                <select
                   className="input input-bordered"
                   name="category"
                   value={input.category}
                   onChange={handleChange}
-                  required
-                />
+                  required>
+                  <option
+                    disabled
+                    value="">
+                    ==Please Select Category==
+                  </option>
+
+                  <option value="Main Menu">Main Menu</option>
+
+                  <option value="Beverage">Beverage</option>
+
+                  <option value="Snack">Snack</option>
+                  <option value="Desert">Desert</option>
+                </select>
               </div>
 
               <div className="form-control">

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddPage from "../pages/AddPage";
+import BarChart from "../pages/BarChart";
 import DetailPage from "../pages/DetailPage";
 import EditPage from "../pages/EditPage";
 import Home from "../pages/Home";
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "edit/:id",
         element: <EditPage />,
+      },
+      {
+        path: "bar",
+        element: <BarChart />,
       },
     ],
   },
