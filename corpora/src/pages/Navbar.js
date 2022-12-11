@@ -12,7 +12,7 @@ export default function Navbar() {
         <Link
           to={"bar"}
           className="btn btn-ghost normal-case text-xl">
-          Chart
+          Charts
         </Link>
       </div>
 

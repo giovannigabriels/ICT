@@ -72,12 +72,17 @@ export const addItem = (payload) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-    }).then((response) => {
-      if (!response.ok) {
-        throw response.json();
-      }
-      return response.json();
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw response.json();
+        }
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(fetchItem());
+        return data;
+      });
   };
 };
 
@@ -89,11 +94,16 @@ export const putItem = (payload, id) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-    }).then((response) => {
-      if (!response.ok) {
-        throw response.json();
-      }
-      return response.json();
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw response.json();
+        }
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(fetchItem());
+        return data;
+      });
   };
 };

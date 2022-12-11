@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addItem } from "../store/actions/itemAction";
+import { addItem, fetchItem } from "../store/actions/itemAction";
 import FormAdd from "../components/FormAdd";
 import Swal from "sweetalert2";
 export default function AddPage() {
@@ -44,8 +44,10 @@ export default function AddPage() {
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        navigate("/");
       });
-    navigate("/");
   };
   return (
     <div className="hero min-h-screen bg-base-200">

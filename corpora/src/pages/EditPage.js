@@ -35,7 +35,6 @@ export default function EditPage() {
     ev.preventDefault();
     dispatch(putItem(input, id))
       .then((data) => {
-        console.log(data);
         Swal.fire({
           position: "top",
           icon: "success",
@@ -46,8 +45,10 @@ export default function EditPage() {
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        navigate("/");
       });
-    navigate("/");
   };
   useEffect(() => {
     dispatch(fetchOneItem(id))
