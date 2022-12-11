@@ -10,7 +10,7 @@ export default function Navbar() {
           Home
         </Link>
         <Link
-          to={"/bar"}
+          to={"bar"}
           className="btn btn-ghost normal-case text-xl">
           Bar Chart
         </Link>

@@ -16,6 +16,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "bar",
+        element: <BarChart />,
+      },
+      {
         path: "detail/:id",
         element: <DetailPage />,
       },
@@ -26,10 +30,6 @@ const router = createBrowserRouter([
       {
         path: "edit/:id",
         element: <EditPage />,
-      },
-      {
-        path: "bar",
-        element: <BarChart />,
       },
     ],
   },

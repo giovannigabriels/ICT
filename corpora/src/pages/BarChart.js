@@ -11,6 +11,16 @@ export default function BarChart() {
   let [beverage, setBeverage] = useState(0);
   let [snack, setSnack] = useState(0);
   let [desert, setDesert] = useState(0);
+  let [type, setType] = useState("bar");
+  const handlePie = () => {
+    setType("pie");
+  };
+  const handleBar = () => {
+    setType("bar");
+  };
+  const handleLine = () => {
+    setType("line");
+  };
   useEffect(() => {
     dispatch(fetchItem());
   }, []);
@@ -39,12 +49,12 @@ export default function BarChart() {
 
   const options = {
     title: {
-      text: "Category Bar Chart",
+      text: "Category Chart",
     },
     data: [
       {
         // Change type to "doughnut", "line", "splineArea", etc.
-        type: "line",
+        type: type,
         dataPoints: [
           { label: "Main Menu", y: mainMenu },
           { label: "Beverage", y: beverage },
@@ -56,6 +66,21 @@ export default function BarChart() {
   };
   return (
     <>
+      <button
+        className="btn btn-primary"
+        onClick={handlePie}>
+        Pie
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={handleBar}>
+        Bar
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={handleLine}>
+        line
+      </button>
       <CanvasJSChart options={options} />
     </>
   );
