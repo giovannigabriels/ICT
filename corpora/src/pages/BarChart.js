@@ -65,23 +65,23 @@ export default function BarChart() {
     ],
   };
   return (
-    <>
+    <div className="m-10">
       <button
-        className="btn btn-primary"
+        className="btn btn-primary mx-3 my-5 sm:mx-5"
         onClick={handlePie}>
         Pie
       </button>
       <button
-        className="btn btn-primary"
+        className="btn btn-primary mx-3 my-5 sm:mx-5"
         onClick={handleBar}>
         Bar
       </button>
       <button
-        className="btn btn-primary"
+        className="btn btn-primary mx-3 my-5 sm:mx-5"
         onClick={handleLine}>
         line
       </button>
       <CanvasJSChart options={options} />
-    </>
+    </div>
   );
 }

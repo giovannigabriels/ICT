@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import FormEdit from "../components/FormEdit";
 import { addItem, fetchOneItem, putItem } from "../store/actions/itemAction";
 
 export default function EditPage() {
@@ -52,95 +53,12 @@ export default function EditPage() {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <form>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="name"
-                  className="input input-bordered"
-                  name="name"
-                  value={input.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Price</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="price"
-                  className="input input-bordered"
-                  name="price"
-                  value={input.price}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Image Url</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="image url"
-                  className="input input-bordered"
-                  name="imgUrl"
-                  value={input.imgUrl}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Category</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="category"
-                  className="input input-bordered"
-                  name="category"
-                  value={input.category}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Description</span>
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="description"
-                  className="input input-bordered"
-                  name="description"
-                  value={input.description}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-control mt-6">
-                <button
-                  className="btn btn-primary"
-                  type="submit"
-                  onClick={handleSubmit}>
-                  Submit Edit
-                </button>
-                <button
-                  className="btn btn-error"
-                  onClick={handleCancelSubmit}>
-                  Cancel Edit
-                </button>
-              </div>
-            </form>
+            <FormEdit
+              input={input}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              handleCancelSubmit={handleCancelSubmit}
+            />
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchOneItem } from "../store/actions/itemAction";
+import CardDetail from "../components/CardDetail";
 
 export default function DetailPage() {
   const { id } = useParams();
@@ -13,6 +14,7 @@ export default function DetailPage() {
     imgUrl: "",
     category: "",
   });
+  let [loading, setLoading] = useState(true);
   useEffect(() => {
     dispatch(fetchOneItem(id))
       .then((data) => {
@@ -23,44 +25,25 @@ export default function DetailPage() {
           "There has been a problem with your fetch operation:",
           error
         );
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
-
-  return (
-    <div>
-      <div className="bg-yellow-500">
-        <p className="  font-bold text-2xl text-white text-center">
-          {item.name}
-        </p>
-      </div>
-      <div className="mx-96 my-10">
-        <div className="card lg:card-side bg-base-100 shadow-xl">
-          <figure>
-            <img
-              src={item.imgUrl}
-              alt="Album"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title  text-red-600 font-semibold">
-              {" "}
-              {new Intl.NumberFormat("id-ID", {
-                style: "currency",
-                currency: "IDR",
-              }).format(item.price)}
-            </h2>
-            <span>Description : {item.description}</span>
-            <span>Category : {item.category}</span>
-            <div className="card-actions justify-end">
-              <Link
-                to={"/"}
-                className="btn btn-primary">
-                Back to Home
-              </Link>
-            </div>
-          </div>
+  if (loading) {
+    return `Loading...`;
+  } else {
+    return (
+      <div>
+        <div className="bg-yellow-500">
+          <p className="  font-bold text-2xl text-white text-center">
+            {item.name}
+          </p>
+        </div>
+        <div className="mx-96 my-10">
+          <CardDetail item={item} />
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

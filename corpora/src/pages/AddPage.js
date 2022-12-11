@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addItem } from "../store/actions/itemAction";
-
+import FormAdd from "../components/FormAdd";
 export default function AddPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,105 +39,12 @@ export default function AddPage() {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <form>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="name"
-                  className="input input-bordered"
-                  name="name"
-                  value={input.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Price</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="price"
-                  className="input input-bordered"
-                  name="price"
-                  value={input.price}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Image Url</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="image url"
-                  className="input input-bordered"
-                  name="imgUrl"
-                  value={input.imgUrl}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Category</span>
-                </label>
-                <select
-                  className="input input-bordered"
-                  name="category"
-                  value={input.category}
-                  onChange={handleChange}
-                  required>
-                  <option
-                    disabled
-                    value="">
-                    ==Please Select Category==
-                  </option>
-
-                  <option value="Main Menu">Main Menu</option>
-
-                  <option value="Beverage">Beverage</option>
-
-                  <option value="Snack">Snack</option>
-                  <option value="Desert">Desert</option>
-                </select>
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Description</span>
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="description"
-                  className="input input-bordered"
-                  name="description"
-                  value={input.description}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-control mt-6">
-                <button
-                  className="btn btn-primary"
-                  type="submit"
-                  onClick={handleSubmit}>
-                  Submit Add
-                </button>
-                <button
-                  className="btn btn-error"
-                  onClick={handleCancelSubmit}>
-                  Cancel Add
-                </button>
-              </div>
-            </form>
+            <FormAdd
+              input={input}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              handleCancelSubmit={handleCancelSubmit}
+            />
           </div>
         </div>
       </div>

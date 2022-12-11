@@ -1,6 +1,6 @@
 import { FETCH_ITEMS } from "./actionTypes";
 
-const urlBase = "http://localhost:4000/items";
+const urlBase = "https://determined-fashion-fish.cyclic.app/items";
 
 export const itemFetch = (payload) => {
   return {
@@ -10,7 +10,7 @@ export const itemFetch = (payload) => {
 };
 export const fetchItem = () => {
   return (dispatch, getState) => {
-    fetch(`${urlBase}`)
+    return fetch(`${urlBase}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not OK");

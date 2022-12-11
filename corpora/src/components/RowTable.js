@@ -21,17 +21,17 @@ export default function RowTable({ item, idx, handleToDetail, dispatch }) {
       <td>{item.price}</td>
       <td>
         <button
-          className="btn btn-info"
+          className="btn btn-info mx-2"
           onClick={() => handleToDetail(item._id)}>
           Detail
         </button>
         <button
-          className="btn btn-success"
+          className="btn btn-success mx-2"
           onClick={() => handleEdit(item._id)}>
           Edit
         </button>
         <button
-          className="btn btn-warning"
+          className="btn btn-warning mx-2"
           onClick={() => handleDelete(item._id)}>
           Delete
         </button>
